@@ -1,0 +1,21 @@
+{% extends "polls/base.html" %}
+
+{% block content %}
+    <h2 class="name__block">Опросы</h2>
+    {% if question_list %}
+        {{question.question_text}}
+        <p> Краткое описание опроса: {{question.question_description|slice:':50' }}</p>
+        <div class="questions">
+            {% for question in latest_question_list %}
+            <div class="questions__item">
+                <p class="questions__item_descr">Тема опроса:</p>
+                <a class="questions__item_link" href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+         <p>
+             Нет вопросов!
+         </p>
+    {% endif %}
+{% endblock %}

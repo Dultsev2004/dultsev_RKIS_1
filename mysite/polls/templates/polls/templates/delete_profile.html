@@ -1,0 +1,9 @@
+{% extends "polls/base.html" %}
+
+{% block content %}
+    <h2>Вы уверены, что хотите удалить аккаунт? Его не получится восстановить</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить аккаунт</button>
+    </form>
+{% endblock %}

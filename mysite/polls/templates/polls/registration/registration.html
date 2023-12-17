@@ -1,0 +1,20 @@
+{% extends "polls/base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="registartion">
+    <h2 class="name__block">Регистрация</h2>
+
+    {% if error_message %}
+        <p> {{error_message}}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+         {% bootstrap_form form layout='horizontal' %}
+        {% buttons submit='Зарегистрироваться' %}{% endbuttons %}
+    </form>
+
+    <a href="{% url 'polls:login'%}">Уже зарегистрированны?</a>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "polls/base.html" %}
+
+{% block content %}
+    <img src="{{ profile.avatar.url }}" alt="Avatar">
+    <p>Имя пользователь: {{ request.user.username }}</p>
+    <a class="btn-option" href="{% url 'polls:edit_profile' profile.id %}">Редактировать данные аккаунта</a>
+    <a class="btn-option" href="{% url 'polls:delete_profile' profile.id%}">Удалить аккаунт</a>
+{% endblock %}
